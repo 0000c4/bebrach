@@ -4,9 +4,13 @@
         <!--<div class="newMsg">новое сообщение</div> разрешить отправлять сообщения тоьлко авторизованным пользователям-->
         <article id="msgForm">
             <form name="msgForm" action="/thread" method="post" enctype="multipart/form-data">
-            <button class="button" type="submit" name="name" onclick="sendMsgJSON()">отправить</button> <!--отправляет имя треда на сервер... не очень красиво, но зато в одном посте всё-->
-            <input class="addImage" name="image" type="file" name="photo" multiple accept="image/*"><br>
-            <textarea name="msg" placeholder="сообщениe...."></textarea><br>
+            <input class="addImage" name="image" type="file" name="photo" multiple accept="image/*">
+            <div>
+                <input type="hidden" name="reply" value="null"></span>
+                <span id="reply" value=""></span>
+                <button class="button" type="submit" name="name" onclick="sendMsgJSON()">отправить</button> <!--отправляет имя треда на сервер... не очень красиво, но зато в одном посте всё-->
+            </div>
+            <textarea name="msg" placeholder="сообщениe...."></textarea>
             </form>
         </article>
     </section>

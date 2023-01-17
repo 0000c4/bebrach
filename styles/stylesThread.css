@@ -70,8 +70,11 @@ section .newMsg:hover {
     max-width: 224px;
     max-height: 22px;
 }
-#msgForm .button{
+#msgForm div{
     float:right;
+}
+#msgForm div span{
+    color: rgb(102, 102, 102);
 }
 #arrowTop { /*кнопка прокрутки*/
     border: 2px solid rgb(102, 102, 102);

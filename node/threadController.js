@@ -11,6 +11,7 @@ const patternThread = [{
     "msg": "",
     "author": "",
     "date": "",
+    //"reply": null,
     "id": 0
 }]
 
@@ -55,6 +56,7 @@ class threadController {
         res.redirect("/thread?id=" + req.body.head)//переадресация на только что созданный тред
     }
     newMsg(req, res) {
+        console.log(req.body)
         let id = decodeURI(req.body.name) //имя треда
         let thread = JSON.parse(fs.readFileSync("threads/" + id + "/" + id + ".json"))
         let message = {
@@ -63,7 +65,7 @@ class threadController {
             "date": new Date(),
             "id": thread[thread.length-1].id + 1//получение последнего айди сообщения в треде
         }
-
+        if(req.body.reply != "null"){message.reply = req.body.reply;}
         thread.push(message)
         fs.writeFileSync("threads/" + id + "/" + id + ".json", JSON.stringify(thread))
         if(req.files != null){req.files.image.mv("threads/" + id + "/" + "img_id:" + message.id +".jpg")};

@@ -36,8 +36,9 @@ function sendMsgJSON() { //скрипт создания треда
     registerForm.elements["name"].value = window.location.href.split('=')[1]; //получение текущего адреса и деление его после =
 }
 function reply(reply_id){
-    let registerForm = document.forms["msgForm"]; 
-    registerForm.elements["msg"].value = ">>" + reply_id
+    let registerForm = document.forms["msgForm"];
+    registerForm.elements["reply"].value = reply_id;
+    document.getElementById("reply").innerHTML = ">>" + reply_id;
     registerForm.elements["msg"].focus();
 }
 function logout(){
