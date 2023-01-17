@@ -1,0 +1,80 @@
+@import "global.css";
+section article {
+    width: 100vh;
+    min-height: 200px;
+    padding-right: 3px;
+}
+section article p{
+    margin: 3px;
+}
+section article .header{
+    margin-left: 5px;
+    color: rgb(102, 102, 102);
+}
+article a{
+    float:right;
+    margin-right:5px;
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+}
+article a:hover{
+    color: rgb(32, 32, 32);
+}
+.image{
+    float:left;
+    border: 1px solid rgb(102, 102, 102);
+    max-height: 250px;
+    max-width: 250px;
+    margin: 5px;
+}
+
+main textarea {
+    width: 100%;
+    min-height: 200px;
+    resize: none;
+    background-color: #ddd;
+    border: 2px solid rgb(102, 102, 102);
+    border-radius: 10px;
+}
+section .newMsg {
+    border: 2px solid rgb(102, 102, 102);
+    width: 140px;
+    height: 25px;
+    margin: 5px;
+    border-radius: 10px;
+    text-align: center;
+}
+section .newMsg:hover {
+    background-color: #595959;
+}
+.addImage::file-selector-button{
+    background-color: #ddd;
+    border: 2px solid rgb(102, 102, 102);
+    border-radius: 10px;
+}
+.addImage::file-selector-button:hover{
+    background-color: #595959;
+    color: white;
+}
+.addImage{
+    margin-top: 3px;
+    max-width: 224px;
+    max-height: 22px;
+}
+#msgForm .button{
+    float:right;
+}
+#arrowTop { /*кнопка прокрутки*/
+    border: 2px solid rgb(102, 102, 102);
+    border-radius: 10px;
+    color: rgb(102, 102, 102);
+    font-size: 30px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  #arrowTop::before {
+    content: '▼';
+  }

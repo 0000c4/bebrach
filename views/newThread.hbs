@@ -1,0 +1,16 @@
+<main>
+    <section>
+        <article>
+             {{#if auth}} <!--если пользователь авторизирован показывает альтернативную форму-->
+            <form name="threadForm" action="/newThread" method="post" enctype="multipart/form-data">
+                <input class="header" size="50px" type="text" placeholder="название треда" name="head"><br>
+                <textarea name="body"></textarea><br>
+                <button type="submit" class="button">завершить</button>
+            </form>
+             {{else}}
+                <input class="header" disabled="true" size="50px" type="text" placeholder="вы не авторизованы" name="head"><br>
+                <textarea name="body" placeholder="гости не могут создавать треды, сначала войдите в свой профиль." disabled="true"></textarea><br>
+             {{/if}}
+        </article>
+    </section>
+</main>

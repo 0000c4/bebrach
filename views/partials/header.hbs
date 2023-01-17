@@ -1,0 +1,32 @@
+<header>
+    <img src="logo.png" alt="bebrach">
+    <span>BEBRACH</span>
+    <nav>
+        <div>
+        <a href="/">главная</a>
+        <a href="/all">треды</a>
+        <a href="/newThread">создать</a>
+        <a href="/about">о сайте</a>
+        </div>
+        {{#if auth}} <!--если пользователь авторизирован показывает альтернативную форму-->
+        <form class="logged">
+            <a class="username">{{name}}</a>
+            <button onclick="logout()">выход</button>
+        </form>
+        {{else}}
+            <div class="dropdown">
+                <input type="checkbox" id="click" name="scales"  style="opacity: 0;">
+                <label for="click" class="dropbtn">войти</label>
+                <form class="auth" name="authForm" action="/" method="post" enctype="multipart/form-data">
+                    <input class="button"type="text" placeholder="логин" name="userName">
+                    <input class="button" type="password" placeholder="пароль" name="password">
+                    <div>
+                    <button class="button" class="button" type="submit">войти</button>
+                    <input class="button" type="button" value="регистрация"
+                    onclick="window.location.replace('/registration')">
+                    </div>
+                </form>
+            </div>
+        {{/if}}
+    </nav>
+</header>

@@ -1,0 +1,24 @@
+<main>
+    <section>
+        {{body}}
+        <!--<div class="newMsg">новое сообщение</div> разрешить отправлять сообщения тоьлко авторизованным пользователям-->
+        <article id="msgForm">
+            <form name="msgForm" action="/thread" method="post" enctype="multipart/form-data">
+            <button class="button" type="submit" name="name" onclick="sendMsgJSON()">отправить</button> <!--отправляет имя треда на сервер... не очень красиво, но зато в одном посте всё-->
+            <input class="addImage" name="image" type="file" name="photo" multiple accept="image/*"><br>
+            <textarea name="msg" placeholder="сообщениe...."></textarea><br>
+            </form>
+        </article>
+    </section>
+    <div id="arrowTop"></div>
+    <script>
+
+        arrowTop.onclick = function () {
+            window.scrollTo(pageXOffset, document.documentElement.scrollHeight);
+        };
+        window.addEventListener('scroll', function () {
+            arrowTop.hidden = (pageYOffset > document.documentElement.scrollHeight / 2);
+        });
+
+    </script>
+</main>
