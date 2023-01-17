@@ -80,7 +80,7 @@ class threadController {
             if(fs.existsSync("threads/" + id + "/" + "img_id:" + thread[i].id +".jpg"))
             {img= '<img class="image" src="'+ 'threads/' + id + '/img_id:' + thread[i].id + '.jpg"></img>'}
             data += '<article><div class="header">' + thread[i].author +' '+ thread[i].date +
-            '<a href="#">ответить</a></div>' + img + '<p>' + thread[i].msg + '</p></article>'
+            '<a id="' + thread[i].id + '" onclick="reply(this.id)">ответить</a></div>' + img + '<p>' + thread[i].msg + '</p></article>'
             img = ""
         }
         res.render("thread.hbs", {

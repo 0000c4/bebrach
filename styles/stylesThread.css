@@ -4,6 +4,12 @@ section article {
     min-height: 200px;
     padding-right: 3px;
 }
+section article:focus-within {
+    border: 2px solid black
+}
+section #msgForm:focus-within {
+    border: 2px solid rgb(102, 102, 102);
+}
 section article p{
     margin: 3px;
 }
@@ -19,6 +25,9 @@ article a{
 }
 article a:hover{
     color: rgb(32, 32, 32);
+}
+article .replyLink{
+    float:none;
 }
 .image{
     float:left;
