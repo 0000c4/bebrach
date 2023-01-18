@@ -59,10 +59,12 @@ class threadController {
         console.log(req.body)
         let id = decodeURI(req.body.name) //имя треда
         let thread = JSON.parse(fs.readFileSync("threads/" + id + "/" + id + ".json"))
+        const date = new Date();
+        const data = [date.getFullYear(),date.getMonth() + 1,date.getDate()].join("-") + " " + [date.getHours(),date.getMinutes()].join(":")
         let message = {
             "msg": req.body.msg,
             "author": authCheck(req.cookies.token).userName,
-            "date": new Date(),
+            "date": data,
             "id": thread[thread.length-1].id + 1//получение последнего айди сообщения в треде
         }
         if(req.body.reply != "null"){message.reply = req.body.reply;}
@@ -76,14 +78,18 @@ class threadController {
         let id = req.query.id //получение имени треда из запроса
         let thread = fs.readFileSync("threads/" + id + "/" + id + ".json") //поиск треда по имени в хранилище
         thread = JSON.parse(thread) //запись треда который представляет массив в переменную
+        let reply = "";
         let img = "";
         let data = ""; //переменная строки для вставки в html
         for (let i = 0; i < thread.length; i++) {//рендер каждого сообщения
             if(fs.existsSync("threads/" + id + "/" + "img_id:" + thread[i].id +".jpg"))
             {img= '<img class="image" src="'+ 'threads/' + id + '/img_id:' + thread[i].id + '.jpg"></img>'}
-            data += '<article><div class="header">' + thread[i].author +' '+ thread[i].date +
-            '<a id="' + thread[i].id + '" onclick="reply(this.id)">ответить</a></div>' + img + '<p>' + thread[i].msg + '</p></article>'
+            if(thread[i].reply != null){
+                reply = '<a name="' + thread[i].reply + '" onclick="focusMsg(this.name)"  class="link"> >>'+ thread[i].reply +'</a>';}
+            data += '<article><div class="header">' + thread[i].author +' '+ thread[i].date + reply +
+            '<a id="' + thread[i].id + '" onclick="reply(this.id)" tabindex="0">ответить</a></div>' + img + '<p>' + thread[i].msg + '</p></article>';
             img = ""
+            reply = "";
         }
         res.render("thread.hbs", {
             body: new hbs.SafeString(data),

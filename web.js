@@ -41,6 +41,9 @@ function reply(reply_id){
     document.getElementById("reply").innerHTML = ">>" + reply_id;
     registerForm.elements["msg"].focus();
 }
+function focusMsg(msgID) {
+    document.getElementById(msgID).focus();
+}
 function logout(){
     document.cookie = 'token=; expires=-1';
     window.location.replace("/");

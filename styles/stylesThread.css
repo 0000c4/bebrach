@@ -5,7 +5,7 @@ section article {
     padding-right: 3px;
 }
 section article:focus-within {
-    border: 2px solid black
+    border: 3px solid black
 }
 section #msgForm:focus-within {
     border: 2px solid rgb(102, 102, 102);
@@ -22,6 +22,9 @@ article a{
     margin-right:5px;
     color: rgb(102, 102, 102);
     text-decoration: none;
+}
+article .link{
+    float: none;
 }
 article a:hover{
     color: rgb(32, 32, 32);
