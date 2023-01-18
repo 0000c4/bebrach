@@ -60,11 +60,10 @@ class threadController {
         let id = decodeURI(req.body.name) //имя треда
         let thread = JSON.parse(fs.readFileSync("threads/" + id + "/" + id + ".json"))
         const date = new Date();
-        const data = [date.getFullYear(),date.getMonth() + 1,date.getDate()].join("-") + " " + [date.getHours(),date.getMinutes()].join(":")
         let message = {
             "msg": req.body.msg,
             "author": authCheck(req.cookies.token).userName,
-            "date": data,
+            "date": date.toLocaleDateString() + " " + date.toLocaleTimeString(),
             "id": thread[thread.length-1].id + 1//получение последнего айди сообщения в треде
         }
         if(req.body.reply != "null"){message.reply = req.body.reply;}

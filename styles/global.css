@@ -113,7 +113,17 @@ main .button:hover {
 header .logged {
     /*стили для альтернативной формы*/
     margin-top: 3px;
-
+}
+header .logged span{
+    /*стили для альтернативной формы*/
+    color: black;
+    text-align: center;
+    margin: 0px;
+    padding: 5px;
+    padding-top: 4px;
+    text-decoration: none;
+    background-color: rgba(221, 221, 221, 0.753);
+    font-size: 17px;
 }
 
 header .logged .username {

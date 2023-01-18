@@ -7,7 +7,7 @@
                 <input class="addImage" name="image" type="file" name="photo" multiple accept="image/*">
                 <div>
                     <input type="hidden" name="reply" value="null"></span>
-                    <span id="reply" value=""></span>
+                    <span id="reply" onclick="resetReply()" value=""></span>
                     <button class="button" type="submit" name="name" onclick="sendMsgJSON()">отправить</button>
                     <!--отправляет имя треда на сервер... не очень красиво, но зато в одном посте всё-->
                 </div>
