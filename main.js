@@ -54,7 +54,7 @@ app.get("/all",threadController.threadsListRender)
 
 async function main(){
     try{
-    app.listen(1488, ()=>{console.log("сервер запушен")})
+    app.listen(3000, ()=>{console.log("сервер запушен")})
     await mongoose.connect("mongodb://127.0.0.1:27017/bebrach_database");
     }
     catch(error){
